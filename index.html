@@ -3,125 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team Fortress 2 — фан-страница + Змейка</title>
+  <title>Team Fortress 2 — фан-страница</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header__inner">
-      <div class="brand">
-        <span class="brand__badge">TF2</span>
-        <div class="brand__text">
-          <h1>Team Fortress 2</h1>
-          <p>Фан-страница + мини-игра “Змейка” (HTML / CSS / JS).</p>
-        </div>
-      </div>
 
-      <!-- Кнопка только визуально (по заданию) -->
-      <button class="cta" type="button" aria-label="Визуальная кнопка">Кнопка (визуально)</button>
+<header class="header">
+  <div class="header__inner">
+    <div class="brand">
+      <span class="brand__badge">TF2</span>
+      <div class="brand__text">
+        <h1>Team Fortress 2</h1>
+        <p>Фан-страница + JS-карточки + мини-игра</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#about">О TF2</a>
+    <a href="#classes">Классы</a>
+    <a href="#snake">Змейка</a>
+  </nav>
+</header>
+
+<main class="main">
+
+  <section id="about" class="card">
+    <h2>Что такое TF2?</h2>
+    <p>Team Fortress 2 — командный шутер от Valve с уникальным стилем и 9 классами.</p>
+  </section>
+
+  <section id="classes" class="card">
+    <h2>Классы</h2>
+
+    <div class="controls">
+      <button data-role="all">Все</button>
+      <button data-role="attack">Атака</button>
+      <button data-role="defense">Защита</button>
+      <button data-role="support">Поддержка</button>
     </div>
 
-    <nav class="nav">
-      <a href="#about">О TF2</a>
-      <a href="#classes">Классы</a>
-      <a href="#snake">Змейка</a>
-      <a href="#links">Ссылки</a>
-    </nav>
-  </header>
+    <div id="classesList" class="classes"></div>
+  </section>
 
-  <!-- Body -->
-  <main class="main">
-    <section id="about" class="card">
-      <div class="card__grid">
-        <div>
-          <h2>Что такое TF2?</h2>
-          <p>
-            Team Fortress 2 — командный шутер от Valve с 9 классами, уникальным стилем,
-            картами и большим комьюнити-контентом.
-          </p>
-          <p>
-            Здесь решает тимплей: медик даёт убер, инженер ставит постройки, а снайпер и спай
-            создают постоянную угрозу.
-          </p>
-          <p class="muted small">
-            (Эта страница — учебный проект: минимум 3 смысловых блока, изображения, ссылки, flex/grid и JS.)
-          </p>
-        </div>
+  <section id="snake" class="card">
+    <h2>Мини-игра: Змейка</h2>
+    <canvas id="game" width="420" height="420"></canvas>
+    <p>Управление: WASD / стрелки • P — пауза • R — рестарт</p>
+  </section>
 
-        <figure class="figure">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/5/55/Team_Fortress_2_cover.jpg"
-            alt="Team Fortress 2 cover"
-            loading="lazy"
-          />
-          <figcaption>Обложка Team Fortress 2</figcaption>
-        </figure>
-      </div>
-    </section>
+</main>
 
-    <section id="classes" class="card">
-      <h2>Классы</h2>
-      <p class="muted">Короткий обзор (сетка сделана через CSS Grid).</p>
+<footer class="footer">
+  <p>Учебный проект • HTML + CSS + JavaScript</p>
+</footer>
 
-      <div class="classes">
-        <div class="class"><h3>Scout</h3><p>Скорость, фланг, захват точки.</p></div>
-        <div class="class"><h3>Soldier</h3><p>Универсальный урон, рокет-джамп.</p></div>
-        <div class="class"><h3>Pyro</h3><p>Ближний бой, отражение снарядов.</p></div>
-        <div class="class"><h3>Demoman</h3><p>Липучки и гранаты, контроль зон.</p></div>
-        <div class="class"><h3>Heavy</h3><p>Танк, удержание проходов.</p></div>
-        <div class="class"><h3>Engineer</h3><p>Сентри, диспенсер, телепорты.</p></div>
-        <div class="class"><h3>Medic</h3><p>Лечение и ÜberCharge, ключ к пушу.</p></div>
-        <div class="class"><h3>Sniper</h3><p>Контроль линий, наказание ошибок.</p></div>
-        <div class="class"><h3>Spy</h3><p>Саботаж, бэкстабы и дизрапт.</p></div>
-      </div>
-    </section>
+<div id="modal" class="modal hidden">
+  <div class="modal__content">
+    <button id="closeModal">×</button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
 
-    <section id="snake" class="card">
-      <div class="snake__header">
-        <div>
-          <h2>Мини-игра: Змейка</h2>
-          <p class="muted">Управление: WASD / Стрелки • Пауза: P • Рестарт: R</p>
-        </div>
-        <div class="snake__stats">
-          <div class="pill">Счёт: <span id="score">0</span></div>
-          <div class="pill">Рекорд: <span id="best">0</span></div>
-          <button class="btn" id="startBtn" type="button">Старт</button>
-        </div>
-      </div>
-
-      <div class="snake__layout">
-        <canvas id="game" width="420" height="420"></canvas>
-
-        <aside class="tips">
-          <h3>Как играть</h3>
-          <ul>
-            <li>Собирай “еду”, чтобы расти.</li>
-            <li>Не врезайся в стену или в себя.</li>
-            <li>Скорость растёт каждые 5 очков.</li>
-          </ul>
-          <div class="note">
-            TF2-мем: представь, что еда — это аптечки 😄
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="links" class="card">
-      <h2>Ссылки</h2>
-      <div class="links">
-        <a target="_blank" rel="noopener" href="https://store.steampowered.com/app/440/Team_Fortress_2/">TF2 в Steam</a>
-        <a target="_blank" rel="noopener" href="https://www.teamfortress.com/">Официальный сайт</a>
-        <a target="_blank" rel="noopener" href="https://wiki.teamfortress.com/wiki/Main_Page">TF2 Wiki</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Учебный проект • Team Fortress 2 • HTML + CSS (внешний файл) + JavaScript (мини-игра)</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
