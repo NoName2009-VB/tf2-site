@@ -7,24 +7,29 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-<header class="header">
-  <div class="header__inner">
-    <div class="brand">
-      <span class="brand__badge">TF2</span>
-      <div class="brand__text">
-        <h1>Team Fortress 2</h1>
-        <p>Фан-страница + JS-карточки + мини-игра</p>
+  
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="logo">
+        <img src="logo.jpg" alt="TF2 Logo">
+      </a>
+  
+      <div class="brand">
+        <span class="brand__badge">TF2</span>
+        <div class="brand__text">
+          <h1>Team Fortress 2</h1>
+          <p>Фан-страница + JS-карточки + мини-игра</p>
+        </div>
       </div>
+  
+      <nav class="nav">
+        <a href="#about">О TF2</a>
+        <a href="#classes">Классы</a>
+        <a href="#snake">Змейка</a>
+      </nav>
     </div>
-  </div>
-
-  <nav class="nav">
-    <a href="#about">О TF2</a>
-    <a href="#classes">Классы</a>
-    <a href="#snake">Змейка</a>
-  </nav>
-</header>
+  </header>
+  
 
 <main class="main">
 
@@ -50,6 +55,9 @@
     <h2>Мини-игра: Змейка</h2>
     <canvas id="game" width="420" height="420"></canvas>
     <p>Управление: WASD / стрелки • P — пауза • R — рестарт</p>
+    <div id="snakeOverlay">
+      <button id="startBtn">Начать игру</button>
+    </div>
   </section>
 
 </main>
